@@ -1,0 +1,12 @@
+{
+    "roots": [
+        "./src/test/"
+    ],
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+        "\\.(css|less|svg)$": "identity-obj-proxy"
+    },
+    "setupFilesAfterEnv": [
+        "./src/test/setup.js"
+    ]
+}
