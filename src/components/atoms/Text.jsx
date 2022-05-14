@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Text = ({ children, size, color }) => <span className={`text-${size} ${color}`}>{children}</span>
+const Text = ({ children, size, color }) => {
+
+    return <span className={`text-${size} ${color}`}>{children}</span>
+}
 
 Text.defaultProps = {
     size: 'xl',

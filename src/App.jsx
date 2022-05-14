@@ -1,7 +1,10 @@
 import React from 'react';
 import { UserNameInputs } from '@/components';
-// import { InputComponent } from '@/styles'
+import { RecoilRoot } from 'recoil';
 import tw from "tailwind-styled-components"
+
+
+
 const AppWrap = tw.div`
   bg-gradient-to-r
   from-cyan-500
@@ -13,9 +16,11 @@ const AppWrap = tw.div`
 `
 function App() {
   return (
-    <AppWrap className="App">
-      <UserNameInputs />
-    </AppWrap>
+    <RecoilRoot>
+      <AppWrap className="App">
+        <UserNameInputs />
+      </AppWrap>
+    </RecoilRoot>
   )
 }
 
