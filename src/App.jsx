@@ -1,11 +1,14 @@
 import React from 'react';
-import { UserNameInputs } from '@/components';
+import { UserNameInputs, UserList } from '@/components';
 import { RecoilRoot } from 'recoil';
 import tw from "tailwind-styled-components"
 
 
 
 const AppWrap = tw.div`
+  flex
+  flex-col
+  gap-10
   bg-gradient-to-r
   from-cyan-500
   to-blue-500
@@ -19,6 +22,7 @@ function App() {
     <RecoilRoot>
       <AppWrap className="App">
         <UserNameInputs />
+        <UserList />
       </AppWrap>
     </RecoilRoot>
   )

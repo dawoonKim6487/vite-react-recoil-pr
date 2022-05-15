@@ -1,10 +1,8 @@
 import React from 'react';
-import { Input } from '@/components';
+import { Input, Button } from '@/components';
 import { firstName, secondName } from '@/recoil';
-import { InputComponent } from '@/styles'
+import { InputStyle } from '@/styles'
 import { useRecoilState } from 'recoil';
-
-
 
 function UserNameInputs() {
     const [first, setFirst] = useRecoilState(firstName)
@@ -21,7 +19,7 @@ function UserNameInputs() {
     return (
         <div className='flex flex-col gap-3'>
             <Input name='First name'>
-                <InputComponent
+                <InputStyle
                     type="text"
                     placeholder='first name'
                     onChange={onChageFirst}
@@ -29,13 +27,16 @@ function UserNameInputs() {
                 />
             </Input>
             <Input name='Second name'>
-                <InputComponent
+                <InputStyle
                     type="text"
                     placeholder='Second name'
                     onChange={onChageSecond}
                     value={second}
                 />
             </Input>
+            <Button>
+                <button className='text-cyan-500'>Search</button>
+            </Button>
         </div>
     )
 }

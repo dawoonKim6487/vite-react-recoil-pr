@@ -1,8 +1,10 @@
 import React from 'react'
+import { TextStyle } from '@/styles'
 
 const Text = ({ children, size, color }) => {
 
-    return <span className={`text-${size} ${color}`}>{children}</span>
+    return <TextStyle
+        size={size} color={color}>{children}</TextStyle>
 }
 
 Text.defaultProps = {
