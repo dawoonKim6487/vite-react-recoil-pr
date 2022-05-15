@@ -13,5 +13,6 @@ export const InputStyle = tw.input`
 
 export const TextStyle = tw.h2`
 ${(props) => props.color ? props.color : 'text-slate-400'},
-${(props) => props.size ? 'text-' + props.size : 'text-xl'}
+${(props) => props.size ? 'text-' + props.size : 'text-xl'},
+${(props) => props.bold ? 'font-bold' : 'font-normal'}
 `

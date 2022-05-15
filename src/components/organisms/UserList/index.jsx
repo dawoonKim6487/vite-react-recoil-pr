@@ -1,21 +1,28 @@
 import { List } from '@/components';
-import React, { Suspense } from 'react';
-import { getUserList, getFirstUser } from '@/recoil';
+import React from 'react';
+import { getUserList } from '@/recoil';
 import { useRecoilValue } from 'recoil';
+import tw from 'tailwind-styled-components';
 
+const ListWrap = tw.ul`
+    flex
+    flex-col
+    md:flex-row
+    md:flex-wrap
+    justify-between
+    md:justify-start
+`
 function UserNameInputs() {
     const list = useRecoilValue(getUserList)
-    const first = useRecoilValue(getFirstUser)
 
     return (
-        <div className='flex flex-wrap justify-between gap-1 gap-y-2'>
-            <Suspense fallback={<div>load</div>}>
+        <ListWrap>
+            <React.Suspense fallback={<div>load</div>}>
                 {list.map((ele) =>
-                    <List key={ele.id}>{ele.name}</List>
+                    <List key={ele.id} data={ele} />
                 )}
-                <span>{first.name}</span>
-            </Suspense>
-        </div>
+            </React.Suspense>
+        </ListWrap>
     )
 }
 
