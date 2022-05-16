@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input, Button } from '@/components';
-import { firstName, secondName } from '@/recoil';
 import { InputStyle } from '@/styles'
-import { useRecoilState } from 'recoil';
 
-function UserNameInputs() {
-    const [first, setFirst] = useRecoilState(firstName)
-    const [second, setSecond] = useRecoilState(secondName)
+function UserNameInputs({ addData }) {
+    const [first, setFirst] = useState('');
+    const [second, setSecond] = useState('');
+    const [area, setArea] = useState('');
 
-    const onChageFirst = (e) => {
+    const onChageFirst = e => {
         setFirst(e.target.value)
     }
 
-    const onChageSecond = (e) => {
+    const onChageSecond = e => {
         setSecond(e.target.value)
+    }
+
+    const onChageArea = e => {
+        setArea(e.target.value)
+    }
+
+    const AddList = (data) => {
+        setFirst('')
+        setSecond('')
+        setArea('')
+        addData(data)
     }
 
     return (
@@ -34,8 +44,20 @@ function UserNameInputs() {
                     value={second}
                 />
             </Input>
-            <Button>
-                <button className='text-cyan-500'>Search</button>
+            <Input name='Area'>
+                <InputStyle
+                    type="text"
+                    placeholder='Area'
+                    onChange={onChageArea}
+                    value={area}
+                />
+            </Input>
+            <Button onClick={() => AddList({
+                firstName: first,
+                secondName: second,
+                area: area
+            })}>
+                <span className='text-cyan-500'>Search</span>
             </Button>
         </div>
     )

@@ -15,9 +15,9 @@ active:bg-slate-200
 active:shadow-inner
 `
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
     return (
-        <ButtonWrap>
+        <ButtonWrap onClick={onClick}>
             {children}
         </ButtonWrap>
     )
